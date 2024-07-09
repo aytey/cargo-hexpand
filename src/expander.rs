@@ -9,7 +9,7 @@ use crate::pretty;
 
 pub(crate) fn run<'tcx>(queries: &'tcx Queries<'tcx>, filename: FileName, input: String) {
     queries.global_ctxt().unwrap().enter(|tcx| {
-        let krate = tcx.resolver_for_lowering(()).borrow().1.clone();
+        let krate = tcx.resolver_for_lowering().borrow().1.clone();
 
         // TODO: the following comment is unparseable for non-Sasha people.
 

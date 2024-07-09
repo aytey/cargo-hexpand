@@ -143,7 +143,7 @@ mod patterns {
                 Expr {
                     kind: ExprKind::Path(QPath::TypeRelative(
                         Ty {
-                            kind: TyKind::Path(QPath::LangItem(LangItem::FormatArguments, _, _)),
+                            kind: TyKind::Path(QPath::LangItem(LangItem::FormatArguments, _)),
                             ..
                         },
                         _,

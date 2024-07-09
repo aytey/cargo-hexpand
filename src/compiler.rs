@@ -1,6 +1,5 @@
 use rustc_driver_impl::{Callbacks, Compilation, RunCompiler};
 use rustc_interface::{interface, Queries};
-use rustc_session::EarlyErrorHandler;
 
 macro_rules! gen_compiler {
     (
@@ -71,7 +70,7 @@ macro_rules! gen_compiler {
 
 gen_compiler! {
     config: (config: &mut interface::Config),
-    after_parsing: (compiler: &interface::Compiler, queries: &Queries) -> Compilation,
+    after_crate_root_parsing: (compiler: &interface::Compiler, queries: &Queries) -> Compilation,
     after_expansion: for<'tcx>(compiler: &interface::Compiler, queries: &'tcx Queries<'tcx>) -> Compilation,
-    after_analysis: (handler: &EarlyErrorHandler, compiler: &interface::Compiler, queries: &Queries) -> Compilation,
+    after_analysis: (compiler: &interface::Compiler, queries: &Queries) -> Compilation,
 }

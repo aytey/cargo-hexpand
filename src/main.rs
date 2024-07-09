@@ -25,7 +25,7 @@ use rustc_span::FileName;
 fn main() {
     compiler::Compiler::<()>::new()
         .after_expansion(|_, compiler_: &interface::Compiler, queries| {
-            let (input, filename) = get_source(compiler_.session());
+            let (input, filename) = get_source(&compiler_.sess);
             expander::run(queries, filename, input);
             Compilation::Stop
         })
